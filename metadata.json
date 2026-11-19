@@ -1,0 +1,6 @@
+{
+  "name": "Mehak Beauty Salon — Islamabad",
+  "description": "Luxury hair styling, couture bridal makeup, clinical skincare facials, and bespoke beauty care at Mehak Beauty Salon in Hostel City, Chatta Bakhtawar, Chak Shahzad, Islamabad.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Mehak Beauty Salon — Unified White Mode & All-Colors Theme System
+ * Default theme: Crisp Pure White Luxury with Champagne Gold accent.
+ * All surfaces, typography, borders, and CTAs derive strictly from semantic tokens
+ * so light mode, dark mode, and full-spectrum custom colors maintain WCAG AA contrast.
+ */
+:root {
+  --salon-bg: #ffffff;
+  --salon-surface: #f7f6f3;
+  --salon-card: #ffffff;
+  --salon-text: #141413;
+  --salon-secondary: #3f3f3c;
+  --salon-muted: #66655f;
+  --salon-border: #e6e4de;
+  --salon-accent: #967237;
+  --salon-accent-soft: #f5efe4;
+  --salon-accent-fg: #ffffff;
+  --salon-cta: #141413;
+  --salon-cta-hover: #2c2b28;
+  --salon-cta-fg: #ffffff;
+  --salon-ring: #967237;
+}
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--salon-bg);
+    color: var(--salon-text);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--salon-bg);
+    color: var(--salon-text);
+    transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-x: hidden;
+  }
+
+  .dark body,
+  .dark {
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    outline-color: var(--salon-ring);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--salon-ring);
+    outline-offset: 2px;
+  }
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-sans-body {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.text-balance-safe {
+  text-wrap: balance;
+}
+
+/* Smooth hover underline for editorial text navigation links */
+.nav-link-editorial {
+  position: relative;
+}
+
+.nav-link-editorial::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--salon-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-editorial:hover::after,
+.nav-link-editorial:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
